@@ -69,8 +69,8 @@ void* pt_getVersion(void* args)
         succeeded = 0;
     }
 
-    // Call the function to settle the Promise on the main thread.  The last argument is a const reference to the string
-    // pointer, which will be deleted after this function exits in the settleAsyncPromise function.  That assures the
+    // Call the function to settle the Promise on the main thread.  The last argument is a string pointer,
+    // which will be deleted after this function exits in the settleAsyncPromise function.  That assures the
     // string is not deleted before the Promise is settled.
     std::string* pMsg = new std::string(msg);
     emscripten_async_run_in_main_runtime_thread(EM_FUNC_SIG_VIIP, settleAsyncPromise, promiseID, succeeded, pMsg);
@@ -93,17 +93,4 @@ void getVersionAsync(int promiseID)
     pthread_t id1;
     pthread_create(&id1, &attr, pt_getVersion, static_cast<void*>(pParams));
     pthread_attr_destroy(&attr);
-}
-
-
-//----------------------------------------------------------------------------------------
-//----------------------------------------------------------------------------------------
-bool
-initMyWasm ( std::string wasmHome ) {
-    return false;
-}
-
-//----------------------------------------------------------------------------------------
-int main (int argc, char **argv) {
-    printf ("Starting main() . . .\n");
 }

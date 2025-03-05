@@ -18,8 +18,8 @@ CPPFLAGS=-std=c++20                                           \
          -Wno-deprecated-register                             \
          -Wno-inconsistent-missing-override                   \
          -Wno-logical-op-parentheses                          \
-		 -Wmissing-declarations								  \
-		 -Wdefaulted-function-deleted			              \
+         -Wmissing-declarations                               \
+         -Wdefaulted-function-deleted                         \
          -Wno-unused-value
 
 

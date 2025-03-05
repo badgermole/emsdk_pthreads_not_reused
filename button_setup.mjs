@@ -1,3 +1,4 @@
+// Do this only on the main thread, not in a worker/pthread
 if ( globalThis?.document ) {
     // This will be called on completion/exit of the pthread function
     globalThis.settlePromise = ( promiseId, succeeded, response ) => {
